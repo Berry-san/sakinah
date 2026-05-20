@@ -194,7 +194,6 @@ export function MushafPageView({
   const [reciterId, setReciterId] = useState(DEFAULT_RECITER_ID);
   const [audioLoading, setAudioLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
   // Tracks if page was advanced mid-playback so we resume on the next page
   const continuationRef = useRef(false);
 
@@ -231,7 +230,10 @@ export function MushafPageView({
 
   // Pause audio on unmount (e.g. switching to Translation tab)
   useEffect(() => {
-    return () => { audioRef.current?.pause(); };
+    const audio = audioRef.current;
+    return () => {
+      audio?.pause();
+    };
   }, []);
 
   // Load page data + fonts
@@ -351,18 +353,6 @@ export function MushafPageView({
       continuationRef.current = isPlaying;
       goTo(page + 1);
     }
-  };
-
-  const handleTimeUpdate = () => {
-    const a = audioRef.current;
-    if (!a || !progressRef.current || !a.duration) return;
-    progressRef.current.style.width = `${(a.currentTime / a.duration) * 100}%`;
-  };
-  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
-    const a = audioRef.current;
-    if (!a?.duration) return;
-    const r = e.currentTarget.getBoundingClientRect();
-    a.currentTime = ((e.clientX - r.left) / r.width) * a.duration;
   };
 
   // Swipe
@@ -699,7 +689,6 @@ export function MushafPageView({
 
       {/* ── Audio bar ─────────────────────────────────────────────── */}
       <div className="flex items-center justify-between gap-4 px-4 py-3 border rounded-2xl border-border bg-card card-highlight">
-
         {/* Left: reciter */}
         <div className="flex-1 min-w-0 hidden sm:block">
           {reciters.length > 0 ? (
@@ -762,7 +751,7 @@ export function MushafPageView({
             {audioLoading ? (
               <Loader2 className="w-3 h-3 animate-spin inline" />
             ) : (
-              currentVerse ?? 'tap a verse'
+              (currentVerse ?? 'tap a verse')
             )}
           </span>
           <button
@@ -774,12 +763,7 @@ export function MushafPageView({
         </div>
       </div>
 
-      <audio
-        ref={audioRef}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={onVerseEnd}
-        onError={() => setIsPlaying(false)}
-      />
+      <audio ref={audioRef} onEnded={onVerseEnd} onError={() => setIsPlaying(false)} />
     </div>
   );
 }

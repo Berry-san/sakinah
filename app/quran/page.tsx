@@ -67,7 +67,13 @@ function verseKeysToRanges(keys: string[]): string[] {
 }
 
 export default function QuranPage() {
-  const { currentChapterId, setCurrentChapterId, currentVerseKey, setAudioActive, setAudioPlaying } = useStore();
+  const {
+    currentChapterId,
+    setCurrentChapterId,
+    currentVerseKey,
+    setAudioActive,
+    setAudioPlaying
+  } = useStore();
   const { isAuthenticated } = useAuth();
   const { mutate: logActivity } = useLogActivity();
   const { mutate: updateSession } = useUpdateReadingSession();
@@ -303,7 +309,11 @@ export default function QuranPage() {
                 <div className="flex items-center gap-2">
                   <div className="flex p-1 border bg-card rounded-xl border-border">
                     <button
-                      onClick={() => { setDisplayMode('pure'); setAudioActive(false); setAudioPlaying(false); }}
+                      onClick={() => {
+                        setDisplayMode('pure');
+                        setAudioActive(false);
+                        setAudioPlaying(false);
+                      }}
                       className={cn(
                         'flex items-center gap-1.5 px-4 py-1.5 text-sm font-medium transition-all rounded-lg',
                         displayMode === 'pure'
@@ -315,7 +325,11 @@ export default function QuranPage() {
                       Mushaf
                     </button>
                     <button
-                      onClick={() => { setDisplayMode('full'); setAudioActive(false); setAudioPlaying(false); }}
+                      onClick={() => {
+                        setDisplayMode('full');
+                        setAudioActive(false);
+                        setAudioPlaying(false);
+                      }}
                       className={cn(
                         'flex items-center gap-1.5 px-4 py-1.5 text-sm font-medium transition-all rounded-lg',
                         displayMode === 'full'
@@ -445,7 +459,7 @@ export default function QuranPage() {
         </AnimatePresence>
       </main>
 
-<VerseDetailModal
+      <VerseDetailModal
         verseKey={detailVerseKey || ''}
         isOpen={!!detailVerseKey}
         onClose={() => setDetailVerseKey(null)}

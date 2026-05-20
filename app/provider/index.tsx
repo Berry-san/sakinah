@@ -20,7 +20,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <ReduxProviders>
             <AuthProvider>
               {children}
-<Toaster />
+              <Toaster />
             </AuthProvider>
           </ReduxProviders>
         </ReloadProvider>
