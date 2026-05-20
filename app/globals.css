@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+   Fluid Root Font Size — scales 14px → 16px across 375px → 1440px viewport
+*/
+:root {
+  font-size: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ── Custom Fonts ──────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Euclid Circular A';
+  src: url('/fonts/Euclid_Circular_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Euclid Circular A';
+  src: url('/fonts/Euclid_Circular_Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Euclid Circular A';
+  src: url('/fonts/Euclid_Circular_SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Euclid Circular A';
+  src: url('/fonts/Euclid_Circular_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-family: 'Euclid Circular A', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Scheherazade+New:wght@400;700&family=Noto+Nastaliq+Arabic:wght@400..700&display=swap');
+
+/* ── PP Telegraf — place font files in /public/fonts/ ──────────────────────── */
+
+@font-face {
+  font-family: 'PP Telegraf';
+  src: url('/fonts/PPTelegraf-Regular.woff2') format('woff2'),
+       url('/fonts/PPTelegraf-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Telegraf';
+  src: url('/fonts/PPTelegraf-Medium.woff2') format('woff2'),
+       url('/fonts/PPTelegraf-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Telegraf';
+  src: url('/fonts/PPTelegraf-Bold.woff2') format('woff2'),
+       url('/fonts/PPTelegraf-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Telegraf';
+  src: url('/fonts/PPTelegraf-UltraBold.woff2') format('woff2'),
+       url('/fonts/PPTelegraf-UltraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design Tokens ─────────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 28 18% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 28 18% 10%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 28 18% 10%;
+    --primary: 30 14% 14%;
+    --primary-foreground: 38 25% 90%;
+    --secondary: 30 8% 94%;
+    --secondary-foreground: 28 18% 10%;
+    --muted: 30 8% 94%;
+    --muted-foreground: 32 10% 46%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 38 25% 90%;
+    --border: 30 10% 88%;
+    --input: 30 10% 88%;
+    --ring: 142 76% 36%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Warm charcoal — not navy, not generic dark */
+    --background: 28 18% 5%; /* #0e0b08 */
+    --foreground: 38 25% 90%; /* #ece4d5 */
+
+    --card: 30 15% 8%; /* #151210 */
+    --card-foreground: 38 25% 90%;
+
+    --popover: 30 15% 9%;
+    --popover-foreground: 38 25% 90%;
+
+    --primary: 30 14% 13%; /* #201b16 — raised surface */
+    --primary-foreground: 38 25% 90%;
+
+    --secondary: 30 12% 10%; /* #1a1611 */
+    --secondary-foreground: 38 25% 90%;
+
+    --muted: 30 12% 10%;
+    --muted-foreground: 32 12% 48%; /* #887a6c */
+
+    --accent: 142 71% 45%; /* green-500 #22c55e */
+    --accent-foreground: 142 76% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 38 25% 90%;
+
+    --border: 30 14% 16%;
+    --input: 30 14% 16%;
+    --ring: 142 71% 45%;
+
+    --radius: 0.75rem;
+  }
+}
+
+/* ── Utilities ─────────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  /* Solid surface card — replaces the glass morphism pattern */
+  .glass {
+    @apply bg-card border border-border shadow-sm;
+  }
+  .glass-dark {
+    @apply bg-card border border-border shadow-md;
+  }
+
+  /* Green-to-lime gradient for display text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #22c55e, #a3e635, #22c55e);
+  }
+
+  /* Thin top-edge highlight for cards — gives depth without glow */
+  .card-highlight {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Verse number ornament */
+  .verse-num {
+    @apply inline-flex items-center justify-center w-7 h-7 rounded-full border border-border text-xs font-medium text-muted-foreground;
+  }
+}
+
+/* ── Tajweed colors ────────────────────────────────────────────────────────── */
+
+.tj-ham_wasl,
+.tj-laam_shamsiyah,
+.tj-silent {
+  color: #888888;
+}
+
+.tj-madda_normal {
+  color: #537fff;
+}
+.tj-madda_permissible {
+  color: #4f80ff;
+}
+.tj-madda_necessary,
+.tj-madda_obligatory {
+  color: #6699ff;
+}
+
+.tj-qalqala {
+  color: #ff4444;
+}
+
+.tj-ghunnah,
+.tj-ikhafa,
+.tj-ikhafa_shafawi {
+  color: #dd55cc;
+}
+
+.tj-idghaam,
+.tj-idghaam_mutajanisayn,
+.tj-idghaam_mutaqaribayn,
+.tj-idghaam_shafawi {
+  color: #44cc33;
+}
+
+.tj-iqlab {
+  color: #26bffd;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+  .font-arabic {
+    font-family: 'Amiri', serif;
+  }
+  .font-nastaliq {
+    font-family: 'Noto Nastaliq Arabic', serif;
+  }
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.4);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+}

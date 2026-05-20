@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -X POST https://prelive-oauth2.quran.foundation/oauth2/token -H 'Content-Type: application/x-www-form-urlencoded' -H 'Authorization: Basic __CMDSUB_OUTPUT__')",
+      "Bash(curl -s -X POST https://oauth2.quran.foundation/oauth2/token -H 'Content-Type: application/x-www-form-urlencoded' -H 'Authorization: Basic __CMDSUB_OUTPUT__')",
+      "Bash(curl -s https://apis.quran.foundation/content/api/v4/chapters -H 'x-auth-token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjI5M2JiNjhkLWU0NGQtNDJhZi04MThjLTc5MjQ3MzUzYjZmMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOltdLCJjbGllbnRfaWQiOiI5MmQ2ZWMyMC02NThmLTQwZDktOWJmYS0xOGZiY2UzYTEwY2MiLCJleHAiOjE3Nzg1OTM0MzcsImV4dCI6e30sImlhdCI6MTc3ODU4OTgzNywiaXNzIjoiaHR0cHM6Ly9wcmVsaXZlLW9hdXRoMi5xdXJhbi5mb3VuZGF0aW9uIiwianRpIjoiNWNjZDY2YTEtNWFhMi00YmJkLWFhZGItNjhlMTlhM2RiNTVlIiwibmJmIjoxNzc4NTg5ODM3LCJzY3AiOlsiY29udGVudCJdLCJzdWIiOiI5MmQ2ZWMyMC02NThmLTQwZDktOWJmYS0xOGZiY2UzYTEwY2MifQ.q5WLu-PKCGwxNuL6Ky_I0l4IYE3KwR0726Yue8uGvMp2eHbNyEOpyaZhwGzEYn9iF8wcunr4cPc5CslP_wtIbwlNI3d_nYSTnVP1tKlNFlgnEN9jBbEOBhc6W3tV7isby30lzQHCQe33lnpCorTJ6U5qvPmOZYD8O9hfG91aS-TDhxnNgPDAY2vaGBXIDy7HAkSEGWAuESmKVpoLeyKKANzg_3qxXNuJoExji7VQ7e6nNLjvKvcGsrNh58HVi4SWmOrRcegBTYyqTBV-e4D96a-AQ70vavoi6a35QtE7VH51MJu5EXoto8VeBVHeThbQpDldLu0SONAWq0C3fA0lbV8bhe95jokDC8gZYiTXyIAuqXw2z8CTqnYbJrSx5Rvo7tiqaHy7DPCKayRzGKjqXzgMRXX1GgS_8_8iPpIxPev5mzwnUUcOMWVQoNOB8BIQmCw8LTMaezC5vJv2XdSrSPqeN3UWxHwiDFv7K1IMN00XVL0Wqn6iWrzJ_xy7SCGVipNVMRStcpD5f3G-__aQSLxTcSIOyaniwaOugOlIi5Y6r2WEZ71WSu6IBAU5gPHXKSgkEcCblCBdtAZlnitVxYuZpdxbdkmB7czVATkPGR1GotZ4dTsm1nnupcc8DgqYFcgOOlcAParhbOIGzLxk0J0xVASBZQtQcFncfMzGQS8' -H 'x-client-id: 92d6ec20-658f-40d9-9bfa-18fbce3a10cc' -H 'Accept: application/json')",
+      "Bash(curl -s https://apis.quran.foundation/content/api/v4/chapters -H 'Accept: application/json')",
+      "Bash(curl -s https://api.quran.com/api/v4/chapters -H 'Accept: application/json')",
+      "Bash(curl -s -I \"https://api.quran.com/api/v4/chapters\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/verses/by_chapter/1?language=en&words=true&translations=20,57&fields=text_uthmani&word_fields=text_uthmani,transliteration,char_type_name&per_page=7\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s \"https://api.quran.com/api/v4/resources/chapter_reciters\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('reciters count:', len\\(d.get\\('reciters', []\\)\\)\\); print\\('first:', d['reciters'][0]\\)\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/chapter_recitations/7/1\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('audio_file', {}\\).get\\('audio_url',''\\)[:80]\\)\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/resources/recitations\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/tafsirs/169/by_ayah/1:1\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/hadith/by_ayah/1:1\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/juzs\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); t=d['tafsir']; print\\('keys:', list\\(t.keys\\(\\)\\)\\); print\\('text excerpt:', t.get\\('text',''\\)[:100]\\)\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/audio/reciters/1/timestamp?chapter_number=1\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/audio/reciters/2/timestamp?chapter_number=1\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); j=d['juzs']; print\\('total juz entries:', len\\(j\\)\\); print\\('first 3 juz_numbers:', [x['juz_number'] for x in j[:3]]\\); print\\('last 3 juz_numbers:', [x['juz_number'] for x in j[-3:]]\\)\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/recitations/2/by_chapter/1?per_page=20\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); files=d.get\\('audio_files',[]\\); print\\('count:', len\\(files\\)\\); print\\('first:', files[0] if files else 'none'\\)\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/recitations/2/by_chapter/1?per_page=7\")",
+      "Bash(curl -s \"https://api.quran.com/api/v4/chapter_recitations/2/1\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d\\)\")"
+    ]
+  }
+}
