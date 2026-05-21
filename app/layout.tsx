@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Nur — Your Quran Companion',
+  title: 'Sakinah — Your Quran Companion',
   description:
     'Build a lifelong relationship with the Quran. A premium companion designed for reflection, consistency, and spiritual growth.',
   icons: {

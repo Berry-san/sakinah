@@ -143,7 +143,7 @@ export default function LandingPage() {
           >
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </p>
-          <p className="mt-3 text-sm tracking-[0.2em] uppercase text-muted-foreground font-telegraf">
+          <p className="mt-6 text-sm tracking-[0.2em] uppercase text-muted-foreground font-telegraf">
             In the Name of Allah, the Most Gracious, the Most Merciful
           </p>
         </motion.div>
